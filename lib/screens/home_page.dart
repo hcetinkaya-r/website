@@ -30,33 +30,6 @@ class _HomePageState extends State<HomePage> {
   late List<Work> featuredWorks;
   late List<Work> referenceWorks;
   late List<Widget> imageSliders;
-  late List<String> quickContent;
-
-  List<String> items1 = [
-    'Hakkımızda',
-    'Değerlerimiz',
-    'Politikamız',
-    'Çözüm Ortaklarımız'
-  ];
-  List<String> items2 = [
-    'Endüstriyel Çatı Güneş Enerji Santralleri',
-    'Arazi Tipi Güneş Enerji Santralleri',
-    'Uzaktan İzleme Sistemi - Bakım & Onarım',
-    'Proje, Mühendislik ve Yatırım Danışmanlığı'
-  ];
-
-  List<String> items3 = [
-    'YEDPA Çatı GES Uygulaması',
-    'Second Project',
-    'Third Project',
-    'Fourth Project'
-  ];
-  List<String> items4 = [
-    'Güneş Enerji Sistemleri',
-    'İnşaat & Taahhüt ',
-    'Yazılım Uygulamaları',
-    'İklim Soğutma'
-  ];
 
   _scrollListener() {
     setState(() {
@@ -71,8 +44,6 @@ class _HomePageState extends State<HomePage> {
         this.featuredWorks = list.map((work) => Work.fromJson(work)).toList();
         this.referenceWorks = list.map((work) => Work.fromJson(work)).toList();
       });
-      print('ReferenceWorks home: ' + referenceWorks.length.toString());
-      print('FeaturedWorks home: ' + featuredWorks.length.toString());
     });
   }
 
@@ -82,12 +53,7 @@ class _HomePageState extends State<HomePage> {
         Iterable list = json.decode(response.body);
         this.topBarContents =
             list.map((content) => TopBarContent.fromJson(content)).toList();
-        this.quickContent = list
-            .map((content) => TopBarContent.fromJson(content).quickContents)
-            .cast<String>()
-            .toList();
       });
-      print('TopbarContents home: ' + topBarContents.length.toString());
     });
   }
 
@@ -99,8 +65,6 @@ class _HomePageState extends State<HomePage> {
     featuredWorks = <Work>[];
     imageSliders = <Widget>[];
     topBarContents = <TopBarContent>[];
-
-    quickContent = <String>[];
 
     getWorksFromApi();
     getTopBarContentsFromApi();
@@ -190,12 +154,16 @@ class _HomePageState extends State<HomePage> {
                         FloatingQuickAccessBar(
                           screenSize: screenSize,
                           quickContents: onSelectedTab == 'Kurumsal'
-                              ? items1
+                              ? topBarContents[0].quickContents!.toList()
                               : onSelectedTab == 'Faaliyetler'
-                                  ? items2
+                                  ? topBarContents[1].quickContents!.toList()
                                   : onSelectedTab == 'Projelerimiz'
-                                      ? items3
-                                      : items4,
+                                      ? topBarContents[2]
+                                          .quickContents!
+                                          .toList()
+                                      : topBarContents[3]
+                                          .quickContents!
+                                          .toList(),
                           selectedTap: onSelectedTab,
                         ),
                         Container(
