@@ -61,14 +61,13 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     _scrollController = ScrollController();
     _scrollController.addListener(_scrollListener);
+    getWorksFromApi();
+    getTopBarContentsFromApi();
+
     referenceWorks = <Work>[];
     featuredWorks = <Work>[];
     imageSliders = <Widget>[];
     topBarContents = <TopBarContent>[];
-
-    getWorksFromApi();
-    getTopBarContentsFromApi();
-
     super.initState();
   }
 
@@ -111,7 +110,7 @@ class _HomePageState extends State<HomePage> {
                 elevation: 0,
                 centerTitle: true,
                 title: Text(
-                  'Eda Group Solar',
+                  'Web Site',
                   style: TextStyle(
                     color: Theme.of(context).accentColor,
                     fontSize: screenSize.height / 30,

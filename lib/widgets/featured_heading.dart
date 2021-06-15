@@ -32,7 +32,7 @@ class FeaturedHeading extends StatelessWidget {
                 ),
                 SizedBox(height: 5),
                 Text(
-                  'Eda Group Solar',
+                  'Web Site',
                   textAlign: TextAlign.end,
                   style: TextStyle(
                     color: Theme.of(context).accentColor,

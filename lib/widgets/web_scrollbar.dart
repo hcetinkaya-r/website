@@ -72,7 +72,6 @@ class _WebScrollbarState extends State<WebScrollbar> {
               });
             });
           }
-          // print(_isUpdating);
         }
         return true;
       },
