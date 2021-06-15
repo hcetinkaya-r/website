@@ -35,7 +35,7 @@ class _MyAppState extends State<MyApp> {
       debugShowCheckedModeBanner: false,
       onGenerateRoute: RoutesGenerator.generateRoute,
       initialRoute: RoutesName.HOME_PAGE,
-      title: "EDA GROUP SOLAR",
+      title: "Web Site",
       theme: ThemeData(
         primaryColor: Colors.blue,
         accentColor: Colors.orange,
