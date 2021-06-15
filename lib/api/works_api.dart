@@ -1,6 +1,6 @@
 import 'package:http/http.dart' as http;
 
-class WorkApi {
+class WorksApi {
   static Future getWorks() {
     var url = Uri.parse('http://localhost:3000/works');
     return http.get(url);

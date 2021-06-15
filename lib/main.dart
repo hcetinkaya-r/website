@@ -20,7 +20,7 @@ class _MyAppState extends State<MyApp> {
   Future getUserInfo() async {
     await getUser();
     setState(() {});
-    print(uid);
+    print("UID: " + uid.toString());
   }
 
   @override

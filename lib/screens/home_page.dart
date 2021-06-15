@@ -1,7 +1,9 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:website/api/work_api.dart';
+import 'package:website/api/topbar_contents_api.dart';
+import 'package:website/api/works_api.dart';
+import 'package:website/models/topbar_content.dart';
 import 'package:website/models/work.dart';
 import 'package:website/widgets/bottom_bar.dart';
 import 'package:website/widgets/explore_drawer.dart';
@@ -24,9 +26,11 @@ class _HomePageState extends State<HomePage> {
   late ScrollController _scrollController;
   double _scrollPosition = 0;
   double _opacity = 0;
-  List<Work> featuredWorks = <Work>[];
-  List<Work> referenceWorks = [];
-  List<Widget> imageSliders = [];
+  late List<TopBarContent> topBarContents;
+  late List<Work> featuredWorks;
+  late List<Work> referenceWorks;
+  late List<Widget> imageSliders;
+  late List<String> quickContent;
 
   List<String> items1 = [
     'Hakkımızda',
@@ -61,7 +65,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   void getWorksFromApi() {
-    WorkApi.getWorks().then((response) {
+    WorksApi.getWorks().then((response) {
       setState(() {
         Iterable list = json.decode(response.body);
         this.featuredWorks = list.map((work) => Work.fromJson(work)).toList();
@@ -72,12 +76,34 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
+  void getTopBarContentsFromApi() {
+    TopBarContentsApi.getTopBarContents().then((response) {
+      setState(() {
+        Iterable list = json.decode(response.body);
+        this.topBarContents =
+            list.map((content) => TopBarContent.fromJson(content)).toList();
+        this.quickContent = list
+            .map((content) => TopBarContent.fromJson(content).quickContents)
+            .cast<String>()
+            .toList();
+      });
+      print('TopbarContents home: ' + topBarContents.length.toString());
+    });
+  }
+
   @override
   void initState() {
     _scrollController = ScrollController();
     _scrollController.addListener(_scrollListener);
     referenceWorks = <Work>[];
+    featuredWorks = <Work>[];
+    imageSliders = <Widget>[];
+    topBarContents = <TopBarContent>[];
+
+    quickContent = <String>[];
+
     getWorksFromApi();
+    getTopBarContentsFromApi();
 
     super.initState();
   }
@@ -132,7 +158,8 @@ class _HomePageState extends State<HomePage> {
               )
             : PreferredSize(
                 preferredSize: Size(screenSize.width, 1000),
-                child: TopBarContents(_opacity, _scrollPosition, onTap),
+                child: TopBarContents(
+                    _opacity, _scrollPosition, onTap, topBarContents),
               ),
         drawer: ExploreDrawer(),
         body: WebScrollbar(
@@ -162,7 +189,7 @@ class _HomePageState extends State<HomePage> {
                       children: [
                         FloatingQuickAccessBar(
                           screenSize: screenSize,
-                          items: onSelectedTab == 'Kurumsal'
+                          quickContents: onSelectedTab == 'Kurumsal'
                               ? items1
                               : onSelectedTab == 'Faaliyetler'
                                   ? items2

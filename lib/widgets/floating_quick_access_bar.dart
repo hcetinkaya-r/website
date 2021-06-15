@@ -1,6 +1,5 @@
 import 'dart:ui';
 
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:website/widgets/responsive.dart';
@@ -8,12 +7,14 @@ import 'package:website/widgets/responsive.dart';
 class FloatingQuickAccessBar extends StatefulWidget {
   const FloatingQuickAccessBar(
       {required this.screenSize,
-      required this.items,
-      required this.selectedTap});
+      /*required this.items,*/
+      required this.selectedTap,
+      required this.quickContents});
 
   final Size screenSize;
-  final List<String> items;
+  /*final List<String> items;*/
   final String selectedTap;
+  final List<String> quickContents;
 
   @override
   _FloatingQuickAccessBarState createState() => _FloatingQuickAccessBarState();
@@ -33,7 +34,7 @@ class _FloatingQuickAccessBarState extends State<FloatingQuickAccessBar> {
 
   List<Widget> generateRowElements() {
     rowElements.clear();
-    for (int i = 0; i < widget.items.length; i++) {
+    for (int i = 0; i < widget.quickContents.length; i++) {
       Widget elementTile = InkWell(
         splashColor: Colors.transparent,
         hoverColor: Colors.transparent,
@@ -44,7 +45,7 @@ class _FloatingQuickAccessBarState extends State<FloatingQuickAccessBar> {
         },
         onTap: () {},
         child: Text(
-          widget.items[i],
+          widget.quickContents[i],
           style: TextStyle(
             color: _isHovering[i]
                 ? Theme.of(context).accentColor
@@ -64,7 +65,7 @@ class _FloatingQuickAccessBarState extends State<FloatingQuickAccessBar> {
         ),
       );
       rowElements.add(elementTile);
-      if (i < widget.items.length - 1) {
+      if (i < widget.quickContents.length - 1) {
         rowElements.add(spacer);
       }
     }
@@ -89,7 +90,7 @@ class _FloatingQuickAccessBarState extends State<FloatingQuickAccessBar> {
         child: ResponsiveWidget.isSmallScreen(context)
             ? Column(
                 children: [
-                  ...Iterable<int>.generate(widget.items.length).map(
+                  ...Iterable<int>.generate(widget.quickContents.length).map(
                     (int pageIndex) => Padding(
                       padding:
                           EdgeInsets.only(top: widget.screenSize.height / 80),
@@ -113,7 +114,7 @@ class _FloatingQuickAccessBarState extends State<FloatingQuickAccessBar> {
                                 hoverColor: Colors.transparent,
                                 onTap: () {},
                                 child: Text(
-                                  widget.items[pageIndex].toString(),
+                                  widget.quickContents[pageIndex].toString(),
                                   style: TextStyle(
                                       color: Theme.of(context)
                                           .primaryTextTheme

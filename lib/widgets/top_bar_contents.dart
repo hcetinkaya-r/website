@@ -1,6 +1,6 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:website/models/topbar_content.dart';
 import 'package:website/screens/home_page.dart';
 import 'package:website/utils/auth.dart';
 import 'package:website/utils/routes_name.dart';
@@ -10,8 +10,9 @@ class TopBarContents extends StatefulWidget {
   final double opacity;
   final double scrollPosition;
   final Function(String) onTap;
+  final List<TopBarContent> contents;
 
-  TopBarContents(this.opacity, this.scrollPosition, this.onTap);
+  TopBarContents(this.opacity, this.scrollPosition, this.onTap, this.contents);
 
   @override
   _TopBarContentsState createState() => _TopBarContentsState();
@@ -83,12 +84,12 @@ class _TopBarContentsState extends State<TopBarContents> {
                         value ? _isHovering[0] = true : _isHovering[0] = false;
                       });
                     },
-                    onTap: () => widget.onTap('Kurumsal'),
+                    onTap: () => widget.onTap('${widget.contents[0].name}'),
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         Text(
-                          'Kurumsal',
+                          '${widget.contents[0].name}',
                           style: TextStyle(
                             color: _isHovering[0]
                                 ? Theme.of(context).accentColor
@@ -118,12 +119,12 @@ class _TopBarContentsState extends State<TopBarContents> {
                         value ? _isHovering[1] = true : _isHovering[1] = false;
                       });
                     },
-                    onTap: () => widget.onTap('Faaliyetler'),
+                    onTap: () => widget.onTap('${widget.contents[1].name}'),
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         Text(
-                          'Faaliyetler',
+                          '${widget.contents[1].name}',
                           style: TextStyle(
                             color: _isHovering[1]
                                 ? Theme.of(context).accentColor
@@ -153,12 +154,12 @@ class _TopBarContentsState extends State<TopBarContents> {
                         value ? _isHovering[2] = true : _isHovering[2] = false;
                       });
                     },
-                    onTap: () => widget.onTap('Projelerimiz'),
+                    onTap: () => widget.onTap('${widget.contents[2].name}'),
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         Text(
-                          'Projelerimiz',
+                          '${widget.contents[2].name}',
                           style: TextStyle(
                             color: _isHovering[2]
                                 ? Theme.of(context).accentColor
@@ -188,12 +189,12 @@ class _TopBarContentsState extends State<TopBarContents> {
                         value ? _isHovering[3] = true : _isHovering[3] = false;
                       });
                     },
-                    onTap: () => widget.onTap('Sektörler'),
+                    onTap: () => widget.onTap('${widget.contents[3].name}'),
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         Text(
-                          'Sektörler',
+                          '${widget.contents[3].name}',
                           style: TextStyle(
                             color: _isHovering[3]
                                 ? Theme.of(context).accentColor
@@ -229,7 +230,7 @@ class _TopBarContentsState extends State<TopBarContents> {
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         Text(
-                          'İnsan Kaynakları',
+                          '${widget.contents[4].name}',
                           style: TextStyle(
                             color: _isHovering[4]
                                 ? Theme.of(context).accentColor
@@ -265,7 +266,7 @@ class _TopBarContentsState extends State<TopBarContents> {
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         Text(
-                          'Haberler',
+                          '${widget.contents[5].name}',
                           style: TextStyle(
                             color: _isHovering[5]
                                 ? Theme.of(context).accentColor

@@ -42,9 +42,7 @@
       "phoneNumber": "0533-673-78-27",
       "email": "ramadan@hakan.com"
     }
-
   ],
-    
   "works": [
     {
       "id": 1,
@@ -60,7 +58,7 @@
     },
     {
       "id": 3,
-      "workTypeId": 3,     
+      "workTypeId": 3,
       "title": "Yazılım Projesi",
       "image": "/Users/hakancetinkaya/AndroidStudioProjects/website/assets/images/yazilim.jpeg"
     },
@@ -69,7 +67,6 @@
       "workTypeId": 4,
       "title": "Yangın Projesi",
       "image": "/Users/hakancetinkaya/AndroidStudioProjects/website/assets/images/yangin.png"
-      
     },
     {
       "id": 5,
@@ -78,7 +75,6 @@
       "image": "/Users/hakancetinkaya/AndroidStudioProjects/website/assets/images/elektrik.jpeg"
     }
   ],
-    
   "workTypes": [
     {
       "id": 1,
@@ -90,7 +86,7 @@
     },
     {
       "id": 3,
-      "name": "Yazılım"
+      "name": "Yazılım Projesi"
     },
     {
       "id": 4,
@@ -100,6 +96,59 @@
       "id": 5,
       "name": "Elektrik Projesi"
     }
-    
+  ],
+  "topBarContents": [
+    {
+      "id": 1,
+      "name": "Kurumsal",
+      "quickContents": [
+        "Hakkımızda",
+        "Değerlerimiz",
+        "Politikamız",
+        "Çözüm Ortaklarımız"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Faaliyetler",
+      "quickContents": [
+        "Endüstriyel Çatı Güneş Enerji Santralleri",
+        "Arazi Tipi Güneş Enerji Santralleri",
+        "Uzaktan İzleme Sistemi - Bakım & Onarım",
+        "Proje, Mühendislik ve Yatırım Danışmanlığı"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Projelerimiz",
+      "quickContents": [
+        "YEDPA Çatı GES Uygulaması",
+        "Second Project",
+        "Third Project",
+        "Fourth Project"
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Sektörler",
+      "quickContents": [
+        "Güneş Enerji Sistemleri",
+        "İnşaat & Taahhüt ",
+        "Yazılım Uygulamaları",
+        "İklim Soğutma"
+      ]
+    },
+    {
+      "id": 5,
+      "name": "İnsan Kaynakları"
+    },
+    {
+      "id": 6,
+      "name": "Haberler"
+    },
+    {
+      "id": 7,
+      "name": "İletişim"
+    }
   ]
 }

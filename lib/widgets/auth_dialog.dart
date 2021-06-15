@@ -250,7 +250,7 @@ class _AuthDialogState extends State<AuthDialog> with Validation {
                                           'You have registered successfully';
                                       loginStringColor = Colors.green;
                                     });
-                                    print(result);
+                                    print("Auth result: " + result);
                                   }
                                 }).catchError((error) {
                                   print('Registration Error: $error');
