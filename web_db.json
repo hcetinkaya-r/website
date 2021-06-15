@@ -1,0 +1,105 @@
+{
+  "webUsers": [
+    {
+      "id": 1,
+      "firstName": "Hakan",
+      "lastName": "Cetinkaya",
+      "phoneNumber": "0530-326-05-20",
+      "email": "hakan@hakan.com"
+    },
+    {
+      "id": 2,
+      "firstName": "Elif",
+      "lastName": "Cetinkaya",
+      "phoneNumber": "0530-123-20-20",
+      "email": "elif@hakan.com"
+    },
+    {
+      "id": 3,
+      "firstName": "Hülya",
+      "lastName": "Cetinkaya",
+      "phoneNumber": "0530-321-22-25",
+      "email": "hulya@hakan.com"
+    },
+    {
+      "id": 4,
+      "firstName": "Tarik",
+      "lastName": "Cetinkaya",
+      "phoneNumber": "0533-453-25-25",
+      "email": "tarik@hakan.com"
+    },
+    {
+      "id": 5,
+      "firstName": "Nuriye",
+      "lastName": "Cetinkaya",
+      "phoneNumber": "0535-243-11-22",
+      "email": "nuriye@hakan.com"
+    },
+    {
+      "id": 6,
+      "firstName": "Ramadan",
+      "lastName": "Cetinkaya",
+      "phoneNumber": "0533-673-78-27",
+      "email": "ramadan@hakan.com"
+    }
+
+  ],
+    
+  "works": [
+    {
+      "id": 1,
+      "workTypeId": 1,
+      "title": "GES Projesi",
+      "image": "/Users/hakancetinkaya/AndroidStudioProjects/website/assets/images/ges-2.jpg"
+    },
+    {
+      "id": 2,
+      "workTypeId": 2,
+      "title": "İnşaat Projesi",
+      "image": "/Users/hakancetinkaya/AndroidStudioProjects/website/assets/images/insaat.jpeg"
+    },
+    {
+      "id": 3,
+      "workTypeId": 3,     
+      "title": "Yazılım Projesi",
+      "image": "/Users/hakancetinkaya/AndroidStudioProjects/website/assets/images/yazilim.jpeg"
+    },
+    {
+      "id": 4,
+      "workTypeId": 4,
+      "title": "Yangın Projesi",
+      "image": "/Users/hakancetinkaya/AndroidStudioProjects/website/assets/images/yangin.png"
+      
+    },
+    {
+      "id": 5,
+      "workTypeId": 5,
+      "title": "Elektrik Projesi",
+      "image": "/Users/hakancetinkaya/AndroidStudioProjects/website/assets/images/elektrik.jpeg"
+    }
+  ],
+    
+  "workTypes": [
+    {
+      "id": 1,
+      "name": "Güneş Enerji Sistemleri"
+    },
+    {
+      "id": 2,
+      "name": "İnşaat & Taahhüt"
+    },
+    {
+      "id": 3,
+      "name": "Yazılım"
+    },
+    {
+      "id": 4,
+      "name": "Yangın Projesi"
+    },
+    {
+      "id": 5,
+      "name": "Elektrik Projesi"
+    }
+    
+  ]
+}
