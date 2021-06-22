@@ -8,9 +8,6 @@ import 'package:website/utils/routes_name.dart';
 class RoutesGenerator {
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
-      case RoutesName.HOME_PAGE:
-        return _GeneratePageRoute(
-            widget: HomePage(), routeName: settings.name.toString());
       case RoutesName.HUMAN_RESOURCES_PAGE:
         return _GeneratePageRoute(
             widget: HumanResourcesPage(), routeName: settings.name.toString());

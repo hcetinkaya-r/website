@@ -26,10 +26,10 @@ class _HomePageState extends State<HomePage> {
   late ScrollController _scrollController;
   double _scrollPosition = 0;
   double _opacity = 0;
-  late List<TopBarContent> topBarContents;
-  late List<Work> featuredWorks;
-  late List<Work> referenceWorks;
-  late List<Widget> imageSliders;
+  List<TopBarContent> topBarContents = [];
+  List<Work> featuredWorks = [];
+  List<Work> referenceWorks = [];
+  List<Widget> imageSliders = [];
 
   _scrollListener() {
     setState(() {
@@ -57,17 +57,22 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
+  Future delay() async {
+    await Future.delayed(Duration(milliseconds: 1000), () => getWorksFromApi());
+    await Future.delayed(
+        Duration(milliseconds: 1000), () => getTopBarContentsFromApi());
+  }
+
   @override
   void initState() {
     _scrollController = ScrollController();
     _scrollController.addListener(_scrollListener);
-    getWorksFromApi();
-    getTopBarContentsFromApi();
+    delay();
 
-    referenceWorks = <Work>[];
-    featuredWorks = <Work>[];
-    imageSliders = <Widget>[];
-    topBarContents = <TopBarContent>[];
+    // referenceWorks = <Work>[];
+    // featuredWorks = <Work>[];
+    // imageSliders = <Widget>[];
+    // topBarContents = <TopBarContent>[];
     super.initState();
   }
 
